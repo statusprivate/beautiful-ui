@@ -2,18 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { IconArrowBoxLeft } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconArrowBoxLeft";
-import { IconCheckmark1Small } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconCheckmark1Small";
-import { IconChevronDownSmall } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconChevronDownSmall";
-import { IconCrossSmall } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconCrossSmall";
-import { IconEditBig } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconEditBig";
-import { IconHome } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconHome";
-import { IconMagnifyingGlass } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconMagnifyingGlass";
-import { IconPlusMedium } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconPlusMedium";
-import { IconPopsicle2 } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconPopsicle2";
-import { IconSettingsGear1 } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconSettingsGear1";
-import { IconSidebarLeftArrow } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconSidebarLeftArrow";
-import { IconUserAdd } from "@central-icons-react/round-outlined-radius-2-stroke-2/IconUserAdd";
+import { LogOut, Check, NavArrowDown, Xmark, EditPencil, HomeSimple, Search, Plus, IceCream, Settings, SidebarCollapse, UserPlus } from "iconoir-react";
 import GlideMenu from "@/components/primitives/GlideMenu";
 
 /* ─────────────────────────────────────────────────────────
@@ -26,8 +15,8 @@ import GlideMenu from "@/components/primitives/GlideMenu";
 const WORKSPACE = { key: "creamery", name: "Creamery Ops", monogram: "C" };
 
 const NAV_ITEMS = [
-  { key: "home", label: "Home", icon: <IconHome size={18} /> },
-  { key: "invite", label: "Invite users", icon: <IconUserAdd size={18} />, count: "3/10" },
+  { key: "home", label: "Home", icon: <HomeSimple width={18} height={18} /> },
+  { key: "invite", label: "Invite users", icon: <UserPlus width={18} height={18} />, count: "3/10" },
 ];
 
 export type SidebarRecent = {
@@ -164,13 +153,13 @@ function WorkspaceMenu({
             {WORKSPACE.monogram}
           </span>
           <span className="min-w-0 flex-1 truncate text-[13.5px] font-medium text-ink">{WORKSPACE.name}</span>
-          <span className="shrink-0 text-ink"><IconCheckmark1Small size={18} /></span>
+          <span className="shrink-0 text-ink"><Check width={18} height={18} /></span>
         </button>
         <div className="my-1 h-px bg-line" />
         {[
-          { label: "New workspace", icon: <IconPlusMedium size={16} /> },
-          { label: "Workspace settings", icon: <IconSettingsGear1 size={16} /> },
-          { label: "Invite team members", icon: <IconUserAdd size={16} /> },
+          { label: "New workspace", icon: <Plus width={16} height={16} /> },
+          { label: "Workspace settings", icon: <Settings width={16} height={16} /> },
+          { label: "Invite team members", icon: <UserPlus width={16} height={16} /> },
         ].map((item) => (
           <button
             key={item.label}
@@ -190,7 +179,7 @@ function WorkspaceMenu({
           onClick={onClose}
           className="relative z-10 flex h-9 w-full items-center gap-1.5 rounded-[8px] px-2 text-left"
         >
-          <span className="flex size-5 shrink-0 items-center justify-center text-ink-2"><IconArrowBoxLeft size={16} /></span>
+          <span className="flex size-5 shrink-0 items-center justify-center text-ink-2"><LogOut width={16} height={16} /></span>
           <span className="min-w-0 flex-1 truncate text-[13.5px] text-ink">Sign out</span>
         </button>
       </GlideMenu>
@@ -286,13 +275,13 @@ export default function SidebarNav({
             className="sidebar-workspace-control absolute left-2 top-1 flex h-8 w-[164px] items-center rounded-[8px] px-2 text-left transition-[background-color,transform] duration-100 hover:bg-hover-2 active:scale-[0.99]"
           >
             <span className="sidebar-logo flex size-5 shrink-0 items-center justify-center text-ink">
-              <IconPopsicle2 size={18} />
+              <IceCream width={18} height={18} />
             </span>
             <span className="sidebar-copy ml-1.5 min-w-0 flex-1 truncate text-[14px] font-medium text-ink-2">
               {WORKSPACE.name}
             </span>
             <span className="sidebar-copy ml-1 flex shrink-0 text-ink-3">
-              <IconChevronDownSmall size={16} />
+              <NavArrowDown width={16} height={16} />
             </span>
           </button>
 
@@ -306,7 +295,7 @@ export default function SidebarNav({
             onClick={collapse}
             className="sidebar-collapse-control absolute right-2 top-1 flex size-8 items-center justify-center rounded-[8px] text-ink-3 transition-[opacity,background-color,color] duration-150 hover:bg-hover-2 hover:text-ink"
           >
-            <IconSidebarLeftArrow size={18} />
+            <SidebarCollapse width={18} height={18} />
           </button>
           <button
             type="button"
@@ -316,13 +305,13 @@ export default function SidebarNav({
             onClick={() => setCollapsed(false)}
             className="sidebar-expand-control absolute left-2 top-0.5 flex size-9 items-center justify-center rounded-[8px] text-ink-3 transition-[opacity,background-color,color] duration-150 hover:bg-hover-2 hover:text-ink"
           >
-            <IconSidebarLeftArrow size={18} className="rotate-180" />
+            <SidebarCollapse width={18} height={18} className="rotate-180" />
           </button>
         </div>
 
         <GlideGroup>
           <RailButton
-            icon={<IconEditBig size={18} />}
+            icon={<EditPencil width={18} height={18} />}
             label="New chat"
             onClick={() => {
               if (activeTitle === undefined) setDemoActiveTitle(null);
@@ -349,7 +338,7 @@ export default function SidebarNav({
               className={`absolute inset-0 flex items-center gap-1.5 px-2 text-[12.5px] font-medium text-ink-3 transition-[opacity,transform] ${searchOpen ? "pointer-events-none -translate-x-1 opacity-0" : "translate-x-0 opacity-100"}`}
               style={{ transitionDuration: `${CHAT_SEARCH_MOTION.duration}ms`, transitionTimingFunction: CHAT_SEARCH_MOTION.easing }}
             >
-              <IconChevronDownSmall size={16} />
+              <NavArrowDown width={16} height={16} />
               <span>Chats</span>
             </div>
 
@@ -361,7 +350,7 @@ export default function SidebarNav({
               className={`absolute right-0 top-0 z-10 flex size-8 items-center justify-center rounded-[8px] text-ink-3 transition-[opacity,background-color,color,transform] hover:bg-hover-2 hover:text-ink active:scale-[0.96] ${searchOpen ? "pointer-events-none opacity-0" : "opacity-100"}`}
               style={{ transitionDuration: `${CHAT_SEARCH_MOTION.duration}ms` }}
             >
-              <IconMagnifyingGlass size={16} />
+              <Search width={16} height={16} />
             </button>
 
             <div
@@ -373,7 +362,7 @@ export default function SidebarNav({
               }}
             >
               <span className="ml-2 flex shrink-0 items-center justify-center">
-                <IconMagnifyingGlass size={15} />
+                <Search width={15} height={15} />
               </span>
               <input
                 ref={searchRef}
@@ -398,7 +387,7 @@ export default function SidebarNav({
                 }}
                 className="flex size-8 shrink-0 items-center justify-center rounded-[8px] text-ink-3 transition-[background-color,color,transform] duration-150 hover:bg-hover-2 hover:text-ink active:scale-[0.96]"
               >
-                <IconCrossSmall size={16} />
+                <Xmark width={16} height={16} />
               </button>
             </div>
           </div>

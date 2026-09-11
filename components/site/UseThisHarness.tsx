@@ -24,9 +24,8 @@ Source (MIT, Next.js + Tailwind v4): ${REPO_URL}
    - the design tokens in app/globals.css (the :root, .dark, and @theme blocks)
    - fonts: Inter + JetBrains Mono via next/font (see app/layout.tsx)
 
-2. Install the deps it uses: tailwindcss v4, plus @central-icons-react for the
-   sidebar icons (a commercial set, so set CENTRAL_LICENSE_KEY from
-   centralicons.com, or swap those icons for your own). The sounds (cuelume)
+2. Install the deps it uses: tailwindcss v4, plus iconoir-react for the
+   sidebar icons (no icon licence key required). The sounds (cuelume)
    and dev dial tuning (dialkit) are optional; drop them if you don't want
    them, and remove the posthog analytics calls.
 

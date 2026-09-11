@@ -6,6 +6,7 @@ import type { NextConfig } from "next";
  * runs with no environment variables set. */
 const nextConfig: NextConfig = {
   images: { unoptimized: true },
+  outputFileTracingRoot: process.cwd(),
 };
 
 export default nextConfig;
