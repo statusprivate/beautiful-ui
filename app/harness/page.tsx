@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import IceCreamHarness from "@/components/site/IceCreamHarness";
+import JarvisApp from "@/components/jarvis/JarvisApp";
 
 export const metadata: Metadata = {
-  title: "Ice Cream Harness — Beautiful UI",
+  title: "Jarvis",
   description:
-    "An interactive chat window built entirely from Beautiful UI primitives. Ask a question and watch the agent think, stream, and build the answer out of live components.",
+    "Your personal assistant for conversations, files and getting things done.",
 };
 
 export default function HarnessPage() {
-  return <IceCreamHarness />;
+  return <JarvisApp />;
 }

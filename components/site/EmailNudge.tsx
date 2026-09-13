@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { EmailModal } from "./EmailCapture";
 
 /* ─────────────────────────────────────────────────────────
@@ -15,8 +16,10 @@ const THRESHOLD = 10;
 
 export function EmailNudge() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname === "/jarvis" || pathname === "/harness") return;
     try {
       if (localStorage.getItem(DONE_KEY) === "done") return;
     } catch {
@@ -37,7 +40,7 @@ export function EmailNudge() {
 
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
-  }, []);
+  }, [pathname]);
 
   const close = () => {
     setOpen(false);
